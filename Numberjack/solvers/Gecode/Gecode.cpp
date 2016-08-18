@@ -1607,8 +1607,8 @@ int GecodeSolver::solve() {
     gecodespace->closeNJ();
     // Gecode::branch(*gecodespace, gecodespace->getVar(0), Gecode::INT_VAL_MIN());
     // Gecode::branch(*gecodespace, gecodespace->getGecodeSearchVariables(), Gecode::INT_VAR_MIN_MIN(), Gecode::INT_VAL_SPLIT_MIN());
-    std::cout << "first status:" << gecodespace->status() << " solved:" << Gecode::SS_SOLVED << " branch:" << Gecode::SS_BRANCH << std::endl;
-    gecodespace->print();
+    //std::cout << "first status:" << gecodespace->status() << " solved:" << Gecode::SS_SOLVED << " branch:" << Gecode::SS_BRANCH << std::endl;
+    //gecodespace->print();
     NJGecodeSpace *sol = NULL;
     if(isoptimisation){
         sol = Gecode::bab(gecodespace);
@@ -1617,12 +1617,12 @@ int GecodeSolver::solve() {
         sol = gecodedfs.next();
     }
 
-    std::cout << "gecodespace:" << gecodespace <<" sol:" << sol << std::endl;
-    std::cout << "solve finished. gecodespace status:" << gecodespace->status() << std::endl;
+    //std::cout << "gecodespace:" << gecodespace <<" sol:" << sol << std::endl;
+    //std::cout << "solve finished. gecodespace status:" << gecodespace->status() << std::endl;
     if(sol != NULL){
         lastsolvestatus = SAT;
-        std::cout << "solve finished. sol status:" << sol->status() << std::endl;
-        sol->print();
+        //std::cout << "solve finished. sol status:" << sol->status() << std::endl;
+        //sol->print();
         gecodespace = sol;
     } else {
         lastsolvestatus = UNSAT;
