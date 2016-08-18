@@ -509,7 +509,7 @@ Gecode_Expression* Gecode_Gcc::add(GecodeSolver *solver, bool top_level) {
             v[i] = _vals.get_item(i);
         }
 
-        count(*(solver->gecodespace), scope, c, v);
+        count(*(solver->gecodespace), scope, c, v ,Gecode::ICL_DOM);
     }
 
     return this;

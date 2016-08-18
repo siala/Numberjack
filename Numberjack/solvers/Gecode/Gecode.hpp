@@ -124,10 +124,11 @@ public:
         std::cout << "Creating gecode variable with value set of size " << vals.size() << std::endl;
 #endif
         assertNotClosed();
-        int *values = new int[vals.size()];
+        //int *values = new int[vals.size()];
+        int values [vals.size()] ; 
         for(int i=0; i<vals.size(); i++) values[i] = vals.get_item(i);
 
-        Gecode::IntVar x(*this, Gecode::IntSet(*values, vals.size()));
+        Gecode::IntVar x(*this, Gecode::IntSet(values, vals.size()));
 
         variables.push_back(x);
         return variables.size() - 1;
